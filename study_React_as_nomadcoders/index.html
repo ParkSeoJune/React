@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script
+    src="https://unpkg.com/react@17/umd/react.development.js"
+    crossorigin
+  ></script>
+  <script
+    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    crossorigin
+  ></script>
+  <script>
+    // 다른사람들이 쓰지 않는 방식으로 vanilla.html에 있는 기능 React로 구현하기
+    const root = document.getElementById("root");
+    const span = React.createElement(
+      "span",
+      { id: "sexy-span", style: { color: "red" } }, // ("span", property가 올 수 있다) property는 class name이 될 수도 있고 id가 될 수도 있음
+      "Hello I'm a span" // span에 내용이 옴
+    ); // 이름은 HTML 태그랑 달라도 됨 하지만 ()안에 있는 것은 HTML 태그와 같아야 한다!!!
+    ReactDOM.render(span, root); // render의 의미는 React element를 가지고 HTMl로 만들어 배치한다는 것 그리고 어디에 넣을지 알려줘야함 (span, root)처럼
+  </script>
+</html>
