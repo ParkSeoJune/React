@@ -15,12 +15,12 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     // JSX로 HTML을 쓰는 방식과 비슷하게 작성하기---------------
-    const Title = (
+    const Title = () => (
       <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
         Hello I'm a title
       </h3>
     );
-    const Button = (
+    const Button = () => (
       <button
         id="button"
         style={{
@@ -31,8 +31,14 @@
         Click me
       </button>
     );
-
-    const container = React.createElement("div", null, [Title, Button]); // 배열 안에 span과 btn을 넣어 render에서 둘다 표현할 수 있게 함
-    ReactDOM.render(container, root); // render의 의미는 React element를 가지고 HTMl로 만들어 배치한다는 것 그리고 어디에 넣을지 알려줘야함 (span, root)처럼
+    // 위의 함수 Title, Button을 div에 넣어 마치 HTML처럼 넣어주는 코드
+    // !!! 중요 !!! (Title, Button 같은)컴포넌트의 첫 글자는 반드시 대문자
+    const Container = () => (
+      <div>
+        <Title />
+        <Button />
+      </div>
+    );
+    ReactDOM.render(<Container />, root); // render의 의미는 React element를 가지고 HTMl로 만들어 배치한다는 것 그리고 어디에 넣을지 알려줘야함 (span, root)처럼
   </script>
 </html>
