@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script
+    src="https://unpkg.com/react@17/umd/react.development.js"
+    crossorigin
+  ></script>
+  <script
+    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    crossorigin
+  ></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+
+    function Container() {
+      // const data = React.useState(0); // undefined와 함수 하나를 얻을 수 있음(숫자를 넣어주면 undefined가 아니라 그 숫자가 됨) 여기서 undefined는 data이고 함수 하나는 data를 바꿀 때 사용함
+      // const counter = data[0]; undefined를 counter라는 변수에 담음
+      // const modifier = data[1]; undefined의 값을 변경하는 함수를 modifier라는 변수에 담음
+      // const [counter, modifier] = data; // 위의 주석된 두 코드와 같음
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        setCounter(counter + 1); // 자동으로 counter의 값을 변경하여 리렌더링까지 해준다
+      };
+      return (
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={onClick}>Click me</button>
+        </div>
+      );
+    }
+    ReactDOM.render(<Container />, root);
+  </script>
+</html>
